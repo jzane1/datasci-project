@@ -1,0 +1,8 @@
+streamlit
+prophet
+lightgbm
+optuna
+pandas
+plotly
+scikit-learn
+requests
