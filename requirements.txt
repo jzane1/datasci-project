@@ -7,4 +7,4 @@ plotly
 scikit-learn
 requests
 xgboost
-torch
+seaborn

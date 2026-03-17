@@ -2,3 +2,27 @@
 venv/
 __pycache__/
 *.pyc
+
+# Large/raw data files
+data/ercot_forecast_wide.csv
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Jupyter and notebook checkpoints
+.ipynb_checkpoints/
+
+# Python build / dist artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Logs
+*.log
+
+# Editor / IDE settings
+.vscode/
+.idea/
+
