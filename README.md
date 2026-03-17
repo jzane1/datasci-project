@@ -1,10 +1,28 @@
-The energy grid must maintain a perfect balance of energy generated vs. used at any given time. So during the day, wind and solar can be used, but at night, natural gas must 
-step up their production a bit to account for much lower renewable generation. The "Duck Curve." So it's important to accurately predict consumption at each hour in addition 
-to the benefits of having a good estimator in its own right.
+# ERCOT Load Forecasting: COAST Zone Analysis
 
-Now, in the data, ERCOT has the results from their model of how much energy they expect to be used each hour. It's obviously quite sophisticated but might have the potential 
-to be improved with better outlier evaluation, different feature engineering, attempting other models, etc. And if we find a way to improve the predictions, even by a part 
-of a fraction, it would be a success. 
+Energy supply in Texas is operated by the Electric Reliability Council of Texas (ERCOT). ERCOT continually generates short-term energy demand forecasts to ensure:
+* **Grid reliability**
+* **Effective renewables integration**
+* **Operational cost minimization**
 
-But Dr. Sun really wants our data to "tell a story," which could be a lot easier with a different project idea. And as you can see, I just started this a week ago, so there 
-isn't much of a "sunk cost" if we want to switch it up.
+Forecasting errors can have severe short-term consequences (as seen in February 2021) and accumulate significant long-term financial losses. 
+
+### Project Aim
+Our aim is to develop a machine learning model that outperforms ERCOT’s proprietary neural-network-based model. We consider energy demand in Texas’ **COAST (COAS) zone**, using data from **June 1, 2023, to May 31, 2024**.
+
+All work, feature engineering, and performance analysis are documented in [notebook.ipynb](./notebook.ipynb). 
+
+---
+
+### Data Access & Reproducibility
+Due to file size limits and API restrictions, data is handled as follows:
+
+1. **Actual Electricity Demand:** This data was obtained via the EIA (U.S. Energy Information Administration) API. To reproduce the results, please register for a personal API key on the [EIA website](https://www.eia.gov/opendata/register.php) and input it into the designated cell in the notebook.
+2. **ERCOT Forecast Data:** The historical forecast comparison data is too large to be hosted directly in this repository. The full dataset can be found [here](https://drive.google.com/file/d/1BwlBYQWykMGakHJmeqzi4_lpbZGAY_To/view).
+
+---
+
+### Key Findings
+* **Model Used:** XGBoost (Gradient Boosted Decision Trees)
+* **Target Metric:** Mean Absolute Error (MAE)
+* **Primary Drivers:** Temperature, Dew Point, and Lagged Load Demand
